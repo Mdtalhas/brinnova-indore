@@ -117,7 +117,8 @@ button {
   font-family: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -475,14 +476,12 @@ ul, ol {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.95) 12%,
-    rgba(255, 255, 255, 0.65) 28%,
-    rgba(255, 255, 255, 0.2) 48%,
-    rgba(255, 255, 255, 0) 70%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.95) 12%,
+      rgba(255, 255, 255, 0.65) 28%,
+      rgba(255, 255, 255, 0.2) 48%,
+      rgba(255, 255, 255, 0) 70%);
   pointer-events: none;
 }
 
@@ -494,13 +493,13 @@ ul, ol {
 
 .hero__grid {
   display: grid;
-  grid-template-columns: 56% 44%;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-8);
 }
 
 .hero__content {
-  max-width: 620px;
+  max-width: 660px;
 }
 
 .hero__eyebrow {
@@ -726,8 +725,9 @@ ul, ol {
 
 .service-card__image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .service-card__body {
@@ -1183,8 +1183,15 @@ textarea.form-control,
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- Final CTA --- */
@@ -1388,12 +1395,10 @@ textarea.form-control,
   }
 
   .hero__gradient-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.8) 50%,
-      rgba(255, 255, 255, 0.95) 100%
-    );
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.95) 100%);
   }
 
   .hero__cards-column {
@@ -1499,6 +1504,14 @@ textarea.form-control,
     padding-bottom: var(--space-8);
   }
 
+  .hero__bg-container {
+    opacity: 0.14;
+  }
+
+  .hero__bg-img {
+    object-position: center 15%;
+  }
+
   .hero__title {
     font-size: 1.85rem;
     line-height: 1.18;
@@ -1583,6 +1596,24 @@ textarea.form-control,
     gap: var(--space-4);
   }
 
+  .service-card__image {
+    height: 220px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center 15%;
+  }
+
+  .service-card:first-child .service-card__image,
+  #op-physiotherapy .service-card__image {
+    object-position: top center;
+  }
+
+  .centre__image img {
+    height: 260px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
   .benefits-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
@@ -1648,4 +1679,3 @@ textarea.form-control,
     justify-content: flex-end;
   }
 }
-

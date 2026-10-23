@@ -36,7 +36,7 @@ const EnquiryForm: React.FC = () => {
 
   const validate = (): FormErrors => {
     const newErrors: FormErrors = {};
-    
+
     if (!formData.fullName.trim()) {
       newErrors.fullName = 'Full name is required.';
     } else if (formData.fullName.trim().length < 2) {
@@ -229,7 +229,7 @@ const EnquiryForm: React.FC = () => {
                 id="requirement"
                 name="requirement"
                 className={`form-control form-control--textarea ${errors.requirement ? 'form-control--error' : ''}`}
-                placeholder="Briefly describe your condition or rehabilitation needs"
+                placeholder="Briefly describe your condition"
                 value={formData.requirement}
                 onChange={handleChange}
                 required
