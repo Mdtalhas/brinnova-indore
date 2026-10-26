@@ -94,18 +94,45 @@ const EnquiryForm: React.FC = () => {
         return;
       }
 
+      const submissionTime = new Date().toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        dateStyle: 'medium',
+        timeStyle: 'medium',
+      });
+
+      const description = [
+        `Applicant Name: ${formData.fullName.trim()}`,
+        `Phone: ${formData.phone.trim()}`,
+        `Service Required: ${formData.service}`,
+        `Requirement Details: ${formData.requirement.trim()}`,
+        `City: Indore`,
+        `State: Madhya Pradesh`,
+        `Source: Brinnova Indore Landing Page`,
+        `Submission Time: ${submissionTime}`,
+      ].join('\n');
+
+      const payload = {
+        name: formData.fullName.trim(),
+        contact_name: formData.fullName.trim(),
+        phone: formData.phone.trim(),
+        opportunity: `${formData.service} Enquiry - ${formData.fullName.trim()}`,
+        salesperson_id: siteConfig.formApi.salespersonId ?? 54,
+        company_id: siteConfig.formApi.companyId ?? 112,
+        email_from: '',
+        city: 'Indore',
+        description,
+      };
+
       const response = await fetch(siteConfig.formApi.url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          source: 'Brinnova Care Indore Landing Page',
-          timestamp: new Date().toISOString(),
-        }),
+        body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error('Submission failed. Please try again.');
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok || (data && data.status === 'error')) {
+        throw new Error(data?.message || 'Submission failed. Please try again.');
       }
 
       setIsSuccess(true);

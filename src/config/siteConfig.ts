@@ -52,10 +52,12 @@ export const siteConfig = {
   // Google Maps — [PLACEHOLDER] Generate link after address verification
   googleMapsUrl: '#', // [PLACEHOLDER] Add verified Google Maps directions link
 
-  // Form Submission API
+  // Form Submission API & CRM Integration
   formApi: {
-    url: '/api/enquiry',  // [PLACEHOLDER] Replace with actual backend API endpoint
-    configured: false,    // Set to true once a real backend endpoint is available
+    url: 'https://mysamplewebsite.in/api/crm_leads/create',
+    configured: true,
+    salespersonId: 54,
+    companyId: 112,
   },
 
   // Analytics — [PLACEHOLDER] Add tracking IDs when available
