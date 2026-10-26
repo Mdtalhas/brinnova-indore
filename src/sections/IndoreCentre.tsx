@@ -4,7 +4,7 @@ import { MapPinIcon, PhoneIcon, ClockIcon, NavigationIcon } from '../components/
 
 const IndoreCentre: React.FC = () => {
   return (
-    <section className="section" id="contact" aria-label="Our Indore Centre">
+    <section className="section" id="about" aria-label="Our Indore Centre">
       <div className="container">
         <div className="section-header">
           <h2>Our Indore Centre</h2>
@@ -23,7 +23,7 @@ const IndoreCentre: React.FC = () => {
           </div>
 
           <div className="centre__info">
-            <h3>Brinnova Care — Indore</h3>
+            <h3>Brinnova Transitional Care & Rehabilitation centre — Indore</h3>
 
             {/* Address */}
             <div className="centre__detail">

@@ -10,6 +10,8 @@ import FAQ from './sections/FAQ';
 import FinalCTA from './sections/FinalCTA';
 import Footer from './sections/Footer';
 import MobileBar from './sections/MobileBar';
+import { siteConfig } from './config/siteConfig';
+import { WhatsAppIcon } from './components/Icons';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +29,18 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <MobileBar />
+
+      {/* Sticky WhatsApp Button for Web */}
+      <a
+        href={siteConfig.whatsapp.href}
+        className="floating-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with Brinnova Care on WhatsApp"
+        id="web-floating-whatsapp"
+      >
+        <WhatsAppIcon size={32} />
+      </a>
     </>
   );
 };

@@ -27,18 +27,24 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="footer__heading">Quick Links</h4>
             <nav className="footer__links" aria-label="Footer navigation">
-              {siteConfig.navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {siteConfig.navLinks
+                .filter((link) => link.label !== 'OP Physiotherapy' && link.label !== 'Rehabilitation Services')
+                .map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (link.href === '#home') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      } else {
+                        document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
             </nav>
           </div>
 
@@ -79,12 +85,32 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="footer__bottom">
-          <span>© {currentYear} Brinnova Care. All rights reserved.</span>
-          <span>
-            <a href={siteConfig.websiteUrl} target="_blank" rel="noopener noreferrer">
-              www.brinnovacare.com
+        {/* Bottom Pill Bar */}
+        <div className="footer__bottom-bar">
+          <span className="footer__copyright">
+            Copyright © {currentYear} Brinnova Care. All rights reserved.
+          </span>
+          <span className="footer__divider" aria-hidden="true">|</span>
+          <a
+            href={siteConfig.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__website-link"
+          >
+            www.brinnovacare.com
+          </a>
+          <span className="footer__divider" aria-hidden="true">|</span>
+          <span className="footer__partner">
+            Marketing Partner —
+            <a
+              href="https://dumosh.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dumosh-badge"
+              aria-label="Dumosh - Marketing Partner"
+            >
+              <span className="dumosh-text">DUMOSH</span>
+              <span className="dumosh-dot">.</span>
             </a>
           </span>
         </div>

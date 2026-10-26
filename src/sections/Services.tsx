@@ -1,13 +1,6 @@
 import React from 'react';
 import { siteConfig } from '../config/siteConfig';
-import { PhysioServiceIcon, NeuroServiceIcon, OrthoServiceIcon, GeriatricServiceIcon } from '../components/Icons';
 
-const iconMap: Record<string, React.FC<{ size?: number }>> = {
-  physio: PhysioServiceIcon,
-  neuro: NeuroServiceIcon,
-  ortho: OrthoServiceIcon,
-  geriatric: GeriatricServiceIcon,
-};
 
 const Services: React.FC = () => {
   return (
@@ -20,7 +13,6 @@ const Services: React.FC = () => {
 
         <div className="services-grid">
           {siteConfig.services.map((service) => {
-            const IconComponent = iconMap[service.icon] || PhysioServiceIcon;
             return (
               <article className="service-card" key={service.id} id={service.id}>
                 <img
@@ -32,9 +24,6 @@ const Services: React.FC = () => {
                   height="200"
                 />
                 <div className="service-card__body">
-                  <div className="service-card__icon">
-                    <IconComponent size={24} />
-                  </div>
                   <h3 className="service-card__title">{service.title}</h3>
                   <p className="service-card__desc">{service.description}</p>
                   <a

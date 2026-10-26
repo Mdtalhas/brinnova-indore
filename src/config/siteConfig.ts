@@ -19,24 +19,24 @@ export const siteConfig = {
 
   // Contact Details
   phone: {
-    display: '+91 9100 555 222',
-    href: 'tel:+919100555222',
+    display: '+91 73309 43030',
+    href: 'tel:+917330943030',
     verified: true,
   },
   whatsapp: {
-    display: '+91 9100 555 222',
-    href: 'https://wa.me/919100555222',
+    display: '+91 73309 43030',
+    href: 'https://wa.me/917330943030',
     verified: true,
   },
 
-  // Address — [PLACEHOLDER] Verify with client before publishing
+  // Address
   address: {
-    street: '[Address to be confirmed]',     // [PLACEHOLDER]
-    area: '[Area, Indore]',                  // [PLACEHOLDER]
+    street: 'Vijay Nagar',
+    area: 'Vijay Nagar',
     city: 'Indore',
     state: 'Madhya Pradesh',
-    pincode: '[PIN Code]',                   // [PLACEHOLDER]
-    fullAddress: 'Indore, Madhya Pradesh',
+    pincode: '',
+    fullAddress: 'Vijay Nagar, Indore, MP',
     verified: true,
   },
 
@@ -50,7 +50,7 @@ export const siteConfig = {
   },
 
   // Google Maps — [PLACEHOLDER] Generate link after address verification
-  googleMapsUrl: '#', // [PLACEHOLDER] Add verified Google Maps directions link
+  googleMapsUrl: 'https://www.google.com/maps/place/Brinnova+Transitional+Care+%26+Rehabilitation+centre+-+Vijay+Nagar,+Indore/@22.7646395,75.8828608,641m/data=!3m1!1e3!4m6!3m5!1s0x3963035a7cce9ae3:0x52db07a789ff7da5!8m2!3d22.7646395!4d75.8854357!16s%2Fg%2F11zxh9y60q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D', // [PLACEHOLDER] Add verified Google Maps directions link
 
   // Form Submission API & CRM Integration
   formApi: {
@@ -81,7 +81,6 @@ export const siteConfig = {
     { label: 'Rehabilitation Services', href: '#services' },
     { label: 'Why Brinnova', href: '#why-brinnova' },
     { label: 'FAQs', href: '#faqs' },
-    { label: 'Contact', href: '#contact' },
   ],
 
   // Services

@@ -25,6 +25,10 @@ const Header: React.FC = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileOpen(false);
+    if (href === '#home' || href === '#hero' || href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -39,23 +43,18 @@ const Header: React.FC = () => {
           <div className="top-bar__left">
             <span>Trusted Rehabilitation &amp; Physiotherapy Care</span>
           </div>
-          
-          <div className="top-bar__center">
-            <span className="top-bar__location">
-              <MapPinIcon size={14} className="top-bar__icon" />
-              <span>Indore, Madhya Pradesh</span>
-            </span>
-            <span className="top-bar__divider" aria-hidden="true">|</span>
-            <span className="top-bar__timing">
-              <span>{siteConfig.operatingHours.display}</span>
-            </span>
-          </div>
 
           <div className="top-bar__right">
+            <span className="top-bar__location">
+              <MapPinIcon size={14} className="top-bar__icon" />
+              <span>Vijay Nagar, Indore</span>
+            </span>
+
             <a href={siteConfig.phone.href} className="top-bar__phone" aria-label={`Call ${siteConfig.phone.display}`}>
               <PhoneIcon size={14} className="top-bar__icon" />
               <span>{siteConfig.phone.display}</span>
             </a>
+
             <a href={siteConfig.phone.href} className="top-bar__call-btn" id="top-bar-call-btn">
               Call Now
             </a>
@@ -65,7 +64,12 @@ const Header: React.FC = () => {
 
       <header className={`header ${isScrolled ? 'header--scrolled' : ''}`} id="home">
         <div className="container header__inner">
-          <a href="#home" className="header__logo" aria-label="Brinnova Care Home">
+          <a
+            href="#home"
+            className="header__logo"
+            aria-label="Brinnova Care Home"
+            onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
+          >
             <img
               src={siteConfig.logoUrl}
               alt="Brinnova Care — Physiotherapy & Rehabilitation Centre"

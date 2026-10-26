@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="hero" id="about" aria-label="Hero section">
+    <section className="hero" id="hero" aria-label="Hero section">
       <div className="hero__wrapper">
         {/* Background Image Container with Gradient Fade */}
         <div className="hero__bg-container">
@@ -64,6 +64,16 @@ const Hero: React.FC = () => {
                 Personalised care. Structured rehabilitation.<br />
                 Focused on your functional recovery.
               </p>
+
+              {/* Mobile Hero Image Card shown directly under subtitle */}
+              <div className="hero__mobile-image">
+                <img
+                  src="/images/hero-physiotherapy.jpg"
+                  alt="Physiotherapy and rehabilitation session at Brinnova Care Indore"
+                  className="hero__mobile-img"
+                  loading="eager"
+                />
+              </div>
 
               {/* 2-column Service Highlights Grid */}
               <div className="hero__services-grid">

@@ -533,6 +533,11 @@ ol {
   font-weight: 500;
 }
 
+/* Mobile Image in Hero (hidden on desktop) */
+.hero__mobile-image {
+  display: none;
+}
+
 /* 2-column Service Highlights in Hero */
 .hero__services-grid {
   display: grid;
@@ -734,19 +739,9 @@ ol {
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  flex: 1;
-}
-
-.service-card__icon {
-  width: 44px;
-  height: 44px;
-  background: var(--color-light-blue);
-  border-radius: var(--radius-md);
-  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: var(--space-3);
-  color: var(--color-navy);
+  text-align: center;
+  flex: 1;
 }
 
 .service-card__title {
@@ -755,6 +750,7 @@ ol {
   color: var(--color-navy);
   margin-bottom: var(--space-2);
   line-height: 1.3;
+  text-align: center;
 }
 
 .service-card__desc {
@@ -763,6 +759,7 @@ ol {
   line-height: 1.6;
   margin-bottom: var(--space-4);
   flex-grow: 1;
+  text-align: center;
 }
 
 .service-card__link {
@@ -772,6 +769,7 @@ ol {
   color: var(--color-navy);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   transition: all var(--transition-fast);
   padding-top: var(--space-2);
@@ -1052,12 +1050,16 @@ textarea.form-control,
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  background: #f8fafc;
 }
 
 .centre__image img {
   width: 100%;
-  height: 380px;
+  height: auto;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
+  object-position: left center;
+  display: block;
 }
 
 .centre__info h3 {
@@ -1241,8 +1243,9 @@ textarea.form-control,
 
 /* --- Footer --- */
 .footer {
-  background: var(--color-navy-dark);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--color-white);
+  color: #4a5568;
+  border-top: 1px solid var(--color-light-border);
   padding: var(--space-16) 0 var(--space-8);
 }
 
@@ -1256,19 +1259,19 @@ textarea.form-control,
 .footer__brand img {
   height: 40px;
   margin-bottom: var(--space-5);
-  filter: brightness(10);
 }
 
 .footer__brand p {
   font-size: var(--font-size-sm);
   line-height: 1.7;
   max-width: 280px;
+  color: #4a5568;
 }
 
 .footer__heading {
   font-size: var(--font-size-sm);
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-navy);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: var(--space-5);
@@ -1277,6 +1280,7 @@ textarea.form-control,
 .footer__links a {
   display: block;
   font-size: var(--font-size-sm);
+  color: #4a5568;
   padding: var(--space-1) 0;
   transition: color var(--transition-fast);
 }
@@ -1291,6 +1295,16 @@ textarea.form-control,
   gap: var(--space-3);
   margin-bottom: var(--space-4);
   font-size: var(--font-size-sm);
+  color: #4a5568;
+}
+
+.footer__contact-item a {
+  color: #4a5568;
+  transition: color var(--transition-fast);
+}
+
+.footer__contact-item a:hover {
+  color: var(--color-orange);
 }
 
 .footer__contact-item svg {
@@ -1299,19 +1313,74 @@ textarea.form-control,
   flex-shrink: 0;
 }
 
-.footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: var(--space-6);
+.footer__bottom-bar {
+  margin-top: var(--space-8);
+  background: #005aa9;
+  background: linear-gradient(90deg, #00539c 0%, #0066b8 50%, #00539c 100%);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 9999px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: var(--font-size-xs);
+  justify-content: center;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: 12px 16px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(0, 83, 156, 0.25);
+  text-align: center;
 }
 
-.footer__bottom a:hover {
-  color: var(--color-orange);
+.footer__divider {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer__website-link {
+  color: #ffffff;
+  transition: opacity var(--transition-fast);
+}
+
+.footer__website-link:hover {
+  opacity: 0.85;
+  color: #ffffff;
+}
+
+.footer__partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dumosh-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #0b0f19;
+  padding: 2px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast);
+}
+
+.dumosh-badge:hover {
+  transform: translateY(-1px);
+}
+
+.dumosh-text {
+  font-weight: 900;
+  font-size: 0.8rem;
+  color: #0b0f19;
+}
+
+.dumosh-dot {
+  font-weight: 900;
+  font-size: 0.85rem;
+  color: #e53e3e;
+  margin-left: 1px;
 }
 
 /* --- Mobile Bottom Bar --- */
@@ -1354,6 +1423,43 @@ textarea.form-control,
 .mobile-bar__btn--whatsapp {
   background: #25D366;
   color: var(--color-white);
+}
+
+/* --- Floating WhatsApp Button (Web / Desktop) --- */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  background-color: #25D366;
+  color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.6);
+  color: #ffffff;
+}
+
+.floating-whatsapp svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  /* On mobile, WhatsApp is already available in the sticky bottom mobile-bar */
+  .floating-whatsapp {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1444,10 +1550,10 @@ textarea.form-control,
     --font-size-hero: 1.85rem;
     --font-size-3xl: 1.6rem;
     --font-size-2xl: 1.35rem;
-    --container-padding: 1rem;
-    --top-bar-height: 36px;
-    --main-header-height: 60px;
-    --header-height: 96px;
+    --container-padding: 1.1rem;
+    --top-bar-height: 0px;
+    --main-header-height: 62px;
+    --header-height: 62px;
   }
 
   .section {
@@ -1458,39 +1564,21 @@ textarea.form-control,
     margin-bottom: var(--space-8);
   }
 
-  /* Top Bar on Mobile */
-  .top-bar__center {
-    display: none;
+  /* Completely remove top bar from mobile view */
+  .top-bar {
+    display: none !important;
   }
 
-  .top-bar__inner {
-    justify-content: space-between;
+  .header {
+    top: 0;
   }
 
-  .top-bar__left {
-    display: block;
-    font-size: 0.68rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 60%;
-  }
-
-  .top-bar__right {
-    gap: 8px;
-  }
-
-  .top-bar__phone {
-    display: none;
-  }
-
-  .top-bar__call-btn {
-    padding: 3px 10px;
-    font-size: 0.7rem;
+  .mobile-nav {
+    top: var(--main-header-height);
   }
 
   .header__logo img {
-    height: 36px;
+    height: 38px;
   }
 
   /* Hero Section on Mobile */
@@ -1500,36 +1588,76 @@ textarea.form-control,
 
   .hero__wrapper {
     min-height: auto;
-    padding-top: var(--space-4);
+    padding-top: var(--space-5);
     padding-bottom: var(--space-8);
   }
 
+  /* Hide background image on mobile since we show the dedicated hero card image */
   .hero__bg-container {
-    opacity: 0.14;
+    display: none;
   }
 
-  .hero__bg-img {
-    object-position: center 15%;
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Hide floating cards on mobile */
+  .hero__cards-column {
+    display: none;
   }
 
   .hero__title {
-    font-size: 1.85rem;
+    font-size: 1.9rem;
     line-height: 1.18;
+    margin-bottom: var(--space-2);
   }
 
   .hero__subtitle {
     font-size: 0.95rem;
+    line-height: 1.45;
     margin-bottom: var(--space-4);
+  }
+
+  /* Mobile Hero Image Card matching mockup */
+  .hero__mobile-image {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--space-5);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(16, 59, 115, 0.12);
+    border: 1px solid rgba(16, 59, 115, 0.08);
+  }
+
+  .hero__mobile-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center 20%;
   }
 
   .hero__services-grid {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: var(--space-5);
+    background-color: var(--color-white);
+    padding: var(--space-2) 0;
   }
 
   .hero__service-item {
-    font-size: 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .hero__service-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #eef5fc;
+    color: var(--color-navy);
   }
 
   .hero__ctas {
@@ -1540,6 +1668,7 @@ textarea.form-control,
   .hero__ctas .btn {
     width: 100%;
     justify-content: center;
+    padding: 13px 20px;
   }
 
   .hero__trust-row {
@@ -1547,17 +1676,6 @@ textarea.form-control,
     align-items: flex-start;
     gap: 8px;
     padding-top: var(--space-2);
-  }
-
-  .hero__cards-stack {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .hero-float-card {
-    flex: none;
-    width: 100%;
   }
 
   .form-section {
@@ -1609,9 +1727,10 @@ textarea.form-control,
   }
 
   .centre__image img {
-    height: 260px;
+    height: auto;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
-    object-position: center center;
+    object-position: left center;
   }
 
   .benefits-grid {
@@ -1629,10 +1748,16 @@ textarea.form-control,
     gap: var(--space-6);
   }
 
-  .footer__bottom {
+  .footer__bottom-bar {
+    border-radius: 16px;
+    padding: 14px 18px;
     flex-direction: column;
-    text-align: center;
-    gap: var(--space-3);
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+
+  .footer__divider {
+    display: none;
   }
 
   .mobile-bar {
@@ -1669,13 +1794,5 @@ textarea.form-control,
   :root {
     --font-size-hero: 1.65rem;
     --container-padding: 0.85rem;
-  }
-
-  .top-bar__left {
-    display: none;
-  }
-
-  .top-bar__inner {
-    justify-content: flex-end;
   }
 }
