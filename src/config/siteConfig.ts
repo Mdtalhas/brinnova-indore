@@ -57,7 +57,7 @@ export const siteConfig = {
     url: 'https://mysamplewebsite.in/api/crm_leads/create',
     configured: true,
     salespersonId: 54,
-    companyId: 112,
+    companyId: 99,
   },
 
   // Analytics — [PLACEHOLDER] Add tracking IDs when available
