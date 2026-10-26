@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               height="40"
             />
             <p>
-              Centre-based physiotherapy and rehabilitation services in Indore, Madhya Pradesh. 
+              Centre-based physiotherapy and rehabilitation services in Indore, Madhya Pradesh.
               Personalised care focused on movement, function, and recovery.
             </p>
           </div>
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
           <span className="footer__partner">
             Marketing Partner —
             <a
-              href="https://dumosh.com"
+              href="https://www.dumosh.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="dumosh-badge"
