@@ -105,8 +105,6 @@ const EnquiryForm: React.FC = () => {
         `Phone: ${formData.phone.trim()}`,
         `Service Required: ${formData.service}`,
         `Requirement Details: ${formData.requirement.trim()}`,
-        `City: Indore`,
-        `State: Madhya Pradesh`,
         `Source: Brinnova Indore Landing Page`,
         `Submission Time: ${submissionTime}`,
       ].join('\n');
@@ -118,7 +116,6 @@ const EnquiryForm: React.FC = () => {
         opportunity: `${formData.service} Enquiry - ${formData.fullName.trim()}`,
         salesperson_id: siteConfig.formApi.salespersonId ?? 54,
         company_id: siteConfig.formApi.companyId ?? 112,
-        email_from: '',
         city: 'Indore',
         description,
       };
